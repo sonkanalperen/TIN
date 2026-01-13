@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIN | The Neural Grid v16.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary: #00ff41;
+        --bg: #0a0a0a;
+        --text: #f3f4f6;
+        --accent: #171717;
+        --font-main: 'Inter', sans-serif;
+        --font-serif: 'Playfair Display', serif;
+        --font-mono: 'JetBrains Mono', monospace;
+      }
+
+      .theme-nyt-light {
+        --primary: #000;
+        --bg: #fff;
+        --text: #111;
+        --accent: #f4f4f4;
+      }
+      .theme-nyt-dark {
+        --primary: #fff;
+        --bg: #121212;
+        --text: #e2e2e2;
+        --accent: #1c1c1c;
+      }
+      .theme-matrix-dark {
+        --primary: #00ff41;
+        --bg: #050505;
+        --text: #e5e7eb;
+        --accent: #0f0f0f;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--font-main);
+        line-height: 1.5;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        -webkit-font-smoothing: antialiased;
+        font-size: 15px;
+      }
+
+      .neural-grid {
+        background-image: 
+          linear-gradient(rgba(0, 255, 65, 0.01) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 65, 0.01) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+
+      @keyframes matrix-scan {
+        0% { transform: translateX(-100%); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateX(100%); opacity: 0; }
+      }
+
+      @keyframes shimmer {
+        100% { transform: translateX(100%); }
+      }
+
+      .font-serif-display { font-family: var(--font-serif); }
+      .font-mono-grid { font-family: var(--font-mono); }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      ::selection {
+        background: var(--primary);
+        color: var(--bg);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="neural-grid">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

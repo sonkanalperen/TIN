@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00ff41;
+  --bg: #0a0a0a;
+  --text: #f3f4f6;
+  --accent: #171717;
+  --font-main: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.theme-nyt-light {
+  --primary: #000;
+  --bg: #fff;
+  --text: #111;
+  --accent: #f4f4f4;
+}
+.theme-nyt-dark {
+  --primary: #fff;
+  --bg: #121212;
+  --text: #e2e2e2;
+  --accent: #1c1c1c;
+}
+.theme-matrix-dark {
+  --primary: #00ff41;
+  --bg: #050505;
+  --text: #e5e7eb;
+  --accent: #0f0f0f;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+
+.neural-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.01) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes matrix-scan {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.font-serif-display { font-family: var(--font-serif); }
+.font-mono-grid { font-family: var(--font-mono); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::selection {
+  background: var(--primary);
+  color: var(--bg);
+}

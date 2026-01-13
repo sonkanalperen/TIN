@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ThemeType, ThemeMode } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -223,6 +222,14 @@ const NeuralGate: React.FC<NeuralGateProps> = ({ onConnect, theme, mode, setThem
             )}
           </AnimatePresence>
         </div>
+
+        {/* Footer Text */}
+        <motion.div 
+          initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 2 }}
+          className="absolute bottom-10 text-[8px] font-mono uppercase tracking-[0.5em]"
+        >
+          Hakikat bazen sessizdir dostum.
+        </motion.div>
 
       </div>
       

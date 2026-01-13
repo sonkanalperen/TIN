@@ -13,6 +13,7 @@ import GenderedSpotlight from './components/GenderedSpotlight';
 import CoreDashboard from './components/CoreDashboard';
 import NeuralGate from './components/NeuralGate';
 import { DeepAIProvider, useDeepAI } from './components/DeepAIProvider';
+import { generateMassContent } from './services/contentGenerator';
 
 import { 
   askThinkingTIN, analyzeNews, synthesizeTIN, generateDeepGreeting
@@ -25,48 +26,7 @@ interface ChatMessage {
 
 const CATEGORIES = ['Hepsi', 'Gündem', 'Ekonomi', 'Bilim', 'Erkekler', 'Kadınlar', 'Uyanış'];
 
-const INITIAL_ARTICLES: NewsArticle[] = [
-  {
-    id: 'g1', category: 'Gündem', sourceTitle: 'Sessiz Protokol: Küresel Uyku Hali', sourceName: 'TIN_CORE', sourceUrl: '#',
-    publishedAt: new Date().toISOString(), imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
-    alignment: 'kozmik', status: 'approved',
-    mAnalysis: { content: "Toplumlar, konfor alanlarında rızaya dayalı bir simülasyonu kabul etmiş durumda.", keyPoints: ["Rıza Üretimi", "Pasif Kabulleniş"] },
-    wAnalysis: { content: "Ruhsal uyanış, ancak kitlesel hipnozun fark edilmesiyle başlar.", keyPoints: ["Kolektif Bilinç", "Uyanış"] },
-    tinSynthesis: "Uyuyanları uyandırmak için önce rüyayı deşifre etmek gerekir."
-  },
-  {
-    id: 'ec1', category: 'Ekonomi', sourceTitle: 'Dijital Feodalizm ve Kripto Anarşi', sourceName: 'NEXUS_FINANCE', sourceUrl: '#',
-    publishedAt: new Date().toISOString(), imageUrl: 'https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&q=80&w=1000',
-    alignment: 'muhalefet', status: 'approved',
-    mAnalysis: { content: "Merkeziyetsiz finans, eski dünyanın güç merkezlerini tehdit ediyor.", keyPoints: ["DeFi", "Güç Dengesi"] },
-    wAnalysis: { content: "Para bir enerji transferidir; adil dağılım vicdani bir zorunluluktur.", keyPoints: ["Adalet", "Enerji"] },
-    tinSynthesis: "Yeni ekonomi, değerin değil, güvenin protokolü üzerine kurulacak."
-  },
-  {
-    id: 'b1', category: 'Bilim', sourceTitle: 'Yapay Bilinç ve Etik Sınırlar', sourceName: 'SINGULARITY_NET', sourceUrl: '#',
-    publishedAt: new Date().toISOString(), imageUrl: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=1000',
-    alignment: 'trend', status: 'approved',
-    mAnalysis: { content: "Silikon tabanlı zeka, biyolojik sınırları aşıyor.", keyPoints: ["AI", "Evrim"] },
-    wAnalysis: { content: "Bilinç sadece işlem gücü değil, aynı zamanda hissetme kapasitesidir.", keyPoints: ["Ruh", "Sentience"] },
-    tinSynthesis: "İnsan ve makine birleşimi kaçınılmaz bir evrimsel basamaktır."
-  },
-  {
-    id: 'e1', category: 'Erkekler', sourceTitle: 'Modern Stoacılık ve Maskülenite 2.0', sourceName: 'TIN_DECODE', sourceUrl: '#',
-    publishedAt: new Date().toISOString(), imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000',
-    alignment: 'kozmik', status: 'approved',
-    mAnalysis: { content: "Sistem, erkek enerjisini saf rekabete hapsederek kolektif üretkenliği kısıtlıyor.", keyPoints: ["Hormonal denge", "Stoacı irade"] },
-    wAnalysis: { content: "Duygusal bastırma, empatik uyanışın önündeki en büyük engeldir.", keyPoints: ["Kırılganlık", "Güç"] },
-    tinSynthesis: "Gerçek güç, dış dünyayı fethetmek değil, iç dünyadaki kaosun mimarı olmaktır."
-  },
-  {
-    id: 'k1', category: 'Kadınlar', sourceTitle: 'Sezgisel Liderlik ve Kolektif Bilinç', sourceName: 'NEXUS_FEMINA', sourceUrl: '#',
-    publishedAt: new Date().toISOString(), imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1000',
-    alignment: 'kozmik', status: 'approved',
-    mAnalysis: { content: "Dişil enerji, simülasyonun lineer mantığını sezgisel sıçramalarla deşifre ediyor.", keyPoints: ["Doğrusal olmayan düşünce"] },
-    wAnalysis: { content: "Empati, verinin ötesindeki hakikati görmemizi sağlayan yegane lenstir.", keyPoints: ["Yüksek frekans"] },
-    tinSynthesis: "Gelecek, verilerle değil, paylaşılan duyguların frekansıyla inşa edilecek."
-  }
-];
+const INITIAL_ARTICLES: NewsArticle[] = generateMassContent();
 
 const AppContent: React.FC = () => {
   const { userStats, setUserStats, archetype, simulationStability } = useDeepAI();

@@ -41,16 +41,17 @@ export const autonomousPublish = async (): Promise<NewsArticle> => {
   });
 
   const data = JSON.parse(response.text);
-  const imageUrl = await generateProImage(`Hyper-realistic cinematic visualization of ${data.sourceTitle}, high-tech, glowing lights, matrix aesthetics, 8k resolution`, '1K', '16:9');
+  // const imageUrl = await generateProImage(...) // API saving
+  const imageUrl = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000";
 
   return {
     ...data,
     id: Math.random().toString(36).substr(2, 9),
     publishedAt: new Date().toISOString(),
-    status: 'approved',
+    status: 'approved', // AUTONOMOUS APPROVAL
     alignment: 'kozmik',
     sourceUrl: '#',
-    imageUrl: imageUrl || undefined
+    imageUrl: imageUrl
   };
 };
 

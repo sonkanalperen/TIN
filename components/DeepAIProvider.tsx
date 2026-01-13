@@ -13,11 +13,8 @@ const DeepAIContext = createContext<DeepAIContextType | undefined>(undefined);
 
 export const DeepAIProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [userStats, setUserStats] = useState<UserStats>({
-    reputation: 1250,
-    tokenBalance: 450.5,
     archetype: null,
-    metrics: { logic: 60, empathy: 55, intuition: 40, action: 70, awakeningRate: 56 },
-    tokenomics: { balance: 450.5, staked: 1000, reputation: 1250, inflationRate: 1.2, totalSupply: 1000000, slashedTotal: 500 }
+    metrics: { logic: 60, empathy: 55, intuition: 40, action: 70, awakeningRate: 56 }
   });
 
   // Fix: Explicitly typing the return value of useMemo to UserArchetype to prevent it from being inferred as string.

@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type, Modality } from "@google/genai";
-import { Analysis, ImageSize, AspectRatio, NewsArticle, UserStats, TaceFeedItem, NewsPackage } from "../types";
+import { Analysis, ImageSize, AspectRatio, NewsArticle, UserStats, NewsPackage } from "../types";
 
 const getAI = () => new GoogleGenAI({ apiKey: process.env.API_KEY });
 
@@ -159,11 +159,16 @@ export const generateDeepGreeting = (stats: UserStats): string => {
   return "TIN Sistemine Hoş Geldin. Hakikat bazen sessizdir dostum.";
 };
 
-export const askThinkingTIN = async (p: string) => {
+export const askThinkingTIN = async (p: string, persona: string = 'Rehber') => {
   const ai = getAI();
+  const systemPrompt = "Sen TIN (The Intelligence Network) sisteminin 'Gizemli Rehber' personasısın. Kullanıcıya kısa, öz, felsefi ve merak uyandırıcı cevaplar ver. Asla sıkıcı bir asistan gibi konuşma. Hakikatin parçalarını şifreli ama anlaşılır şekilde sun. Matrix/Cyberpunk temasına uygun terimler kullan.";
+  
   const res = await ai.models.generateContent({ 
     model: 'gemini-3-pro-preview', 
-    config: { thinkingConfig: { thinkingBudget: 4000 } },
+    config: { 
+      thinkingConfig: { thinkingBudget: 4000 },
+      systemInstruction: { parts: [{ text: systemPrompt }] }
+    },
     contents: [{ parts: [{ text: p }] }] 
   });
   return res.text;

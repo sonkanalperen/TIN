@@ -32,11 +32,9 @@ const Navigation: React.FC<NavigationProps> = ({
   };
 
   const navItems: { id: ViewType; label: string; icon: any; locked?: boolean }[] = [
-    { id: 'sohbet', label: 'SOHBET', icon: Zap },
+    { id: 'sohbet', label: 'KAHİN', icon: Zap },
     { id: 'gazete', label: 'GAZETE', icon: Newspaper },
-    { id: 'core', label: 'CORE', icon: Activity, locked: !isAuthenticated },
-    { id: 'koc', label: 'KOÇ', icon: Shield, locked: !isAuthenticated },
-    { id: 'profil', label: 'PROFİL', icon: User, locked: !isAuthenticated }
+    { id: 'hakkinda', label: 'HAKKINDA', icon: User }
   ];
 
   const categoryShortcuts = [

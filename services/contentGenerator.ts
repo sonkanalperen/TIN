@@ -6,38 +6,42 @@ const SOURCES = ['NEXUS_CORE', 'TACE_FEED', 'VOID_SIGNAL', 'DEEP_MIND', 'KRONOS_
 
 const TOPICS = {
   Ekonomi: [
-    'Dijital Feodalizm', 'Kripto Anarşi', 'Enerji Para Birimi', 'Veri Sömürgeciliği', 
-    'Merkeziyetsiz Güven', 'Algoritmik Ticaret', 'Yapay Kıtlık', 'Kuantum Finans',
-    'Biyometrik Ödeme', 'Metaverse Emlak', 'Karbon Kredisi', 'Nöro-Ekonomi',
-    'Sosyal Kredi Skorları', 'Otomasyon Vergisi', 'Evrensel Temel Gelir', 'DAO Yönetimi',
-    'Sentetik Varlıklar', 'Likidite Havuzları', 'Akıllı Sözleşmeler', 'Blokzincir Adaleti',
-    'Gölge Bankacılık', 'Enflasyon Simülasyonu', 'Deflasyonist Spiral', 'Altın Standardı 2.0',
-    'Enerji Takası'
+    'Dijital Köleliğin Yeni Adı: Görünmez Zincirler', 
+    'Cebindeki Para Gerçekten Senin mi?', 
+    'Bankalar Neden Batmana İzin Vermez?', 
+    'Veri Sömürgeciliği: Dijital Bedenin Satılık', 
+    'Algoritmalar Borsa Krizini Tetikleyebilir mi?', 
+    'Yapay Kıtlık: Bolluk İçinde Yokluk Çekmek', 
+    'Nakit Paranın Sonu: Özgürlüğün Mü Yoksa Mahremiyetin Mi?',
+    'Evrensel Temel Gelir: Kurtuluş Reçetesi mi, Pasifleştirme Aracı mı?'
   ],
   Bilim: [
-    'Yapay Bilinç', 'Kuantum Dolanıklık', 'Sentetik Biyoloji', 'Nöral Arayüzler',
-    'CRISPR Devrimi', 'Dyson Küresi', 'Fermi Paradoksu', 'Simülasyon Teorisi',
-    'Karanlık Madde', 'Zaman Kristalleri', 'Telepati Protokolleri', 'Sibernetik Ölümsüzlük',
-    'Nanobot Sürüleri', 'Genetik Mühendislik', 'Uzay Madenciliği', 'Terraforming',
-    'Biyohacker Kültürü', 'Yapay Rahim', 'Hafıza Manipülasyonu', 'Rüya Kaydı',
-    'Bilinç Aktarımı', 'Egzegenet', 'Sicim Teorisi', 'Çoklu Evrenler', 'Entropi Tersi'
+    'Bilinç Bir Yazılım Hatası mı?', 
+    'Simülasyon Teorisi: Gerçeklik Sadece Bir Render mı?', 
+    'Yapay Zeka Seni Senden İyi Tanıdığında Ne Olacak?', 
+    'Genetik Makas: Tanrıyı Oynamanın Bedeli', 
+    'Ölümsüzlük Mümkün, Ama İsteyecek misin?', 
+    'Zamanın Ötesine Geçmek: Kuantum Sıçraması', 
+    'Rüyaların Kaydedildiği Bir Gelecek',
+    'Telepati Gerçek Oluyor: Beyin Çipleri Çağı'
   ],
   Erkekler: [
-    'Modern Stoacılık', 'Maskülenite 2.0', 'Testosteron Krizi', 'Baba Arketipi',
-    'Savaşçı Ruhu', 'Kral Enerjisi', 'Rekabet ve İşbirliği', 'Duygusal Dayanıklılık',
-    'Fiziksel Mükemmellik', 'Zihinsel Disiplin', 'Koruyucu İçgüdü', 'İnşa Edici Güç',
-    'Yalnız Kurt Sendromu', 'Beta Tuzağı', 'Alfa Yanılgısı', 'Sigma Yolu',
-    'Kabile Bağları', 'Ustalık Arayışı', 'Risk Yönetimi', 'Stratejik Düşünme',
-    'Onur Kültürü', 'Sözlü Gelenek', 'Mentorluk', 'Miras Bırakma', 'Güç Dengesi'
+    'Modern Dünyada Kaybolan Savaşçı Ruhu', 
+    'Babalık: Unutulan Bir Sanat mı?', 
+    'Rekabetin Ötesinde: Kardeşlik Hukuku', 
+    'Sessiz Çığlık: Erkeklerin Duygusal İzolasyonu', 
+    'Güç Zehirlenmesi ve Gerçek Otorite', 
+    'Yalnız Kurt Yanılgısı: Sürüye Dönüş',
+    'İnşa Etmek: Erkeğin Varoluşsal Amacı'
   ],
   Kadınlar: [
-    'Sezgisel Liderlik', 'Kolektif Bilinç', 'Dişil Enerji', 'Şifacı Arketipi',
-    'Kraliçe Enerjisi', 'Empati Devrimi', 'Duygusal Zeka', 'Yaratıcı Kaos',
-    'Doğurganlık ve Yaratım', 'Ay Döngüleri', 'Rahim Bilgeliği', 'Topluluk İnşası',
-    'Barışçıl Savaşçı', 'Amazon Ruhu', 'Cadı Avı 2.0', 'Görünmez Emek',
-    'Şefkat Gücü', 'İletişim Ağları', 'Kız Kardeşlik', 'Spiritüel Uyanış',
-    'Gaia Bağlantısı', 'Sezgi ve Mantık', 'Dönüşümcü Liderlik', 'Estetik ve Uyum',
-    'Hayat Veren Güç'
+    'Sezgi: Mantığın Açıklayamadığı Süper Güç', 
+    'Modern Cadı Avı: Dişil Güçten Neden Korkuluyor?', 
+    'Şefkat Bir Zayıflık Değil, Stratejidir', 
+    'Görünmez Emek: Dünyayı Ayakta Tutan Sütunlar', 
+    'Doğurganlık ve Yaratıcılık: Yaşamın Kaynağı', 
+    'Kız Kardeşlik: Rekabet Yerine Dayanışma',
+    'Yaratıcı Kaos: Düzeni Doğuran Fırtına'
   ]
 };
 

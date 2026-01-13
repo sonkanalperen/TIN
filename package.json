@@ -1,7 +1,7 @@
 {
-  "name": "tin-world-v20",
+  "name": "tin-world-v21",
   "private": true,
-  "version": "20.2.0",
+  "version": "21.0.0",
   "type": "module",
   "engines": {
     "node": ">=18.x"

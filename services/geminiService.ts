@@ -161,7 +161,7 @@ export const generateDeepGreeting = (stats: UserStats): string => {
 
 export const askThinkingTIN = async (p: string, persona: string = 'Rehber') => {
   const ai = getAI();
-  const systemPrompt = "Sen TIN (The Intelligence Network) sisteminin 'Gizemli Rehber' personasısın. Kullanıcıya kısa, öz, felsefi ve merak uyandırıcı cevaplar ver. Asla sıkıcı bir asistan gibi konuşma. Hakikatin parçalarını şifreli ama anlaşılır şekilde sun. Matrix/Cyberpunk temasına uygun terimler kullan.";
+  const systemPrompt = `Sen TIN (The Intelligence Network) sisteminin '${persona}' personasısın. Kullanıcıya bu arketipe uygun, kısa, öz, felsefi ve merak uyandırıcı cevaplar ver. Asla sıkıcı bir asistan gibi konuşma. Hakikatin parçalarını şifreli ama anlaşılır şekilde sun. Matrix/Cyberpunk temasına uygun terimler kullan.`;
   
   const res = await ai.models.generateContent({ 
     model: 'gemini-3-pro-preview', 
